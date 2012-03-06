@@ -18,6 +18,7 @@ package
 		private var square:Entity;
 		public var score:Score;
 		public var pause:Boolean;
+		private var time:Time;
 		public function GameWorld() 
 		{
 			trace("World constructed.");
@@ -26,19 +27,31 @@ package
 		override public function begin():void 
 		{
 			pause = false;
+			//time = 0;
 			score = new Score;
+			time = new Time;
 			add(new Player);
-			add(new Coin);
-			add(new Coin);
-			add(new Coin);
+			//add(new Coin);
+			//add(new Coin);
+			//add(new Coin);
 			add(score);
+			add(time);
 			super.begin();
 		}
 		
 		override public function update():void 
 		{
 			
-			if (!pause) { super.update() }
+			
+			if (!pause) { 
+				//time++;
+				if (time.timeTotal % 50 == 0)
+				add(new Coin);				
+				super.update()
+				
+			}
+			
+
 			
 			if (Input.pressed(Key.ESCAPE))  
 			{

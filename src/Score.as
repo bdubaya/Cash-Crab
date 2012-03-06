@@ -29,7 +29,7 @@ package
 		override public function update():void 
 		{
 			
-			score.text = String(scoreTotal);
+			score.text = "Score: " + String(scoreTotal);
 			
 		}
 	}
